@@ -1,0 +1,61 @@
+class Product:
+    def __init__(self, Name, Manufacturer, Amount):
+        self.Name = Name
+        self.Manufacturer = Manufacturer
+        self.Amount = Amount
+
+    def show(self):
+        print("Product Name : {}".format(self.Name))
+        print("Product Manufacturer : {}".format(self.Manufacturer))
+        print("Product Amount : {}".format(self.Amount))
+
+
+class Service:
+    def __init__(self, Name, Provider):
+        self.Name = Name
+        self.Provider = Provider
+
+    def show(self):
+        print("Service Name : {}".format(self.Name))
+        print("Service Provider : {}".format(self.Provider))
+
+
+x = None
+
+product_count = []
+service_count = []
+saveditems = 0
+
+
+def validate_input():
+    temp = input()
+    if (temp == "exit()"):
+        print(f"Saved Item : {saveditems}")
+        print(f"Product : {len(product_count)}")
+        print(f"Service : {len(service_count)}")
+        exit()
+    else:
+        return temp
+
+
+while True:
+    x = validate_input()
+    if (x == '1'):
+        name = input()
+        manufacturer = input()
+        amount = input()
+        product = Product(name, manufacturer, amount)
+        product_count.append(product)
+        saveditems += 1
+        print('Product saved!')
+        product.show()
+    elif (x == '2'):
+        name = input()
+        provider = input()
+        service = Service(name, provider)
+        service_count.append(service)
+        saveditems += 1
+        print('Service saved!')
+        service.show()
+    else:
+        print("Input is not valid!")
